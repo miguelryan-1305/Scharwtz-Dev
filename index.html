@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Schwartz-Dev</title>
+
+    <style>
+        /* =========================
+           VARIÁVEIS DE CORES
+        ========================= */
+        :root {
+            --roxo-escuro: #24152f;
+            --roxo: #392044;
+            --roxo-medio: #53335f;
+            --roxo-pastel: #8d6a98;
+            --lilas: #b99bc4;
+            --lilas-claro: #dbc9df;
+            --fundo: #17101e;
+            --fundo-card: #211629;
+            --texto: #f3eaf5;
+            --texto-secundario: #cbbbd0;
+            --borda: rgba(185, 155, 196, 0.2);
+        }
+
+        /* =========================
+           RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(23, 16, 30, 0.88);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+
+            height: 75px;
+            padding: 0 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--lilas-claro);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--lilas);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--lilas-claro);
+        }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+        section {
+            min-height: 100vh;
+            padding: 120px 30px 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           INÍCIO
+        ========================= */
+        #inicio {
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(141, 106, 152, 0.18),
+                    transparent 35%
+                );
+        }
+
+        .hero {
+            max-width: 850px;
+        }
+
+        .hero small {
+            color: var(--lilas);
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            margin-top: 15px;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            color: var(--texto);
+        }
+
+        .hero h1 span {
+            color: var(--lilas);
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin-top: 25px;
+
+            color: var(--texto-secundario);
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--roxo-medio);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--roxo-pastel);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--borda);
+            color: var(--lilas-claro);
+        }
+
+        .btn-outline:hover {
+            background: rgba(185, 155, 196, 0.1);
+        }
+
+        /* =========================
+           TÍTULOS
+        ========================= */
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: var(--lilas);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            margin-top: 8px;
+            font-size: 2.5rem;
+            color: var(--texto);
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            color: var(--texto-secundario);
+        }
+
+        /* =========================
+           PROJETOS
+        ========================= */
+        #projetos {
+            background: var(--roxo-escuro);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            min-height: 280px;
+            padding: 25px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            background: var(--fundo-card);
+            border: 1px solid var(--borda);
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--lilas);
+        }
+
+        .project-number {
+            color: var(--lilas);
+            margin-bottom: auto;
+            font-size: 0.9rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--texto-secundario);
+        }
+
+        /* =========================
+           PROGRAMADORES
+        ========================= */
+        .developers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .developer-card {
+            padding: 30px;
+
+            background: var(--fundo-card);
+            border: 1px solid var(--borda);
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .developer-photo {
+            width: 100px;
+            height: 100px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: var(--roxo-medio);
+            border: 3px solid var(--lilas);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--lilas-claro);
+            font-size: 2rem;
+        }
+
+        .developer-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .developer-card p {
+            color: var(--texto-secundario);
+        }
+
+        /* =========================
+           SOBRE NÓS
+        ========================= */
+        #sobre {
+            background: var(--roxo-escuro);
+        }
+
+        .about-content {
+            max-width: 850px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--texto-secundario);
+            font-size: 1.05rem;
+        }
+
+        /* =========================
+           CONTATO
+        ========================= */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info p {
+            color: var(--texto-secundario);
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+
+            background: var(--fundo-card);
+            color: white;
+
+            outline: none;
+            font-family: inherit;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--lilas);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            padding: 30px;
+            text-align: center;
+
+            background: #100b15;
+            border-top: 1px solid var(--borda);
+
+            color: var(--texto-secundario);
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+        @media (max-width: 900px) {
+            .projects-grid,
+            .developers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .projects-grid,
+            .developers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <header>
+        <nav class="navbar">
+
+            <a href="#inicio" class="logo">
+                Schwartz<span>-Dev</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#programadores">Programadores</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         INÍCIO
+    ========================== -->
+
+    <section id="inicio">
+
+        <div class="container">
+
+            <div class="hero">
+
+                <small>SCHWARTZ-DEV</small>
+
+                <!-- COLOQUE SEU TÍTULO AQUI -->
+                <h1>
+                    <!-- Título -->
+                    <span></span>
+                </h1>
+
+                <!-- COLOQUE SUA DESCRIÇÃO AQUI -->
+                <p>
+                    
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projetos" class="btn btn-primary">
+                        Ver projetos
+                    </a>
+
+                    <a href="#contato" class="btn btn-outline">
+                        Entrar em contato
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJETOS
+    ========================== -->
+
+    <section id="projetos">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Projetos</span>
+
+                <h2></h2>
+
+                <p></p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+                <!-- PROJETO 01 -->
+                <div class="project-card">
+
+                    <span class="project-number">01</span>
+
+                    <div>
+                        <h3></h3>
+                        <p></p>
+                    </div>
+
+                </div>
+
+
+                <!-- PROJETO 02 -->
+                <div class="project-card">
+
+                    <span class="project-number">02</span>
+
+                    <div>
+                        <h3></h3>
+                        <p></p>
+                    </div>
+
+                </div>
+
+
+                <!-- PROJETO 03 -->
+                <div class="project-card">
+
+                    <span class="project-number">03</span>
+
+                    <div>
+                        <h3></h3>
+                        <p></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRAMADORES
+    ========================== -->
+
+    <section id="programadores">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Equipe</span>
+
+                <h2></h2>
+
+                <p></p>
+
+            </div>
+
+
+            <div class="developers-grid">
+
+                <!-- PROGRAMADOR 01 -->
+                <div class="developer-card">
+
+                    <div class="developer-photo">
+                        
+                    </div>
+
+                    <h3></h3>
+
+                    <p></p>
+
+                </div>
+
+
+                <!-- PROGRAMADOR 02 -->
+                <div class="developer-card">
+
+                    <div class="developer-photo">
+                        
+                    </div>
+
+                    <h3></h3>
+
+                    <p></p>
+
+                </div>
+
+
+                <!-- PROGRAMADOR 03 -->
+                <div class="developer-card">
+
+                    <div class="developer-photo">
+                        
+                    </div>
+
+                    <h3></h3>
+
+                    <p></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOBRE NÓS
+    ========================== -->
+
+    <section id="sobre">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Sobre nós</span>
+
+                <h2></h2>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <!-- ESCREVA SOBRE A EQUIPE AQUI -->
+
+                <p></p>
+
+                <p></p>
+
+                <p></p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTATO
+    ========================== -->
+
+    <section id="contato">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Contato</span>
+
+                <h2></h2>
+
+                <p></p>
+
+            </div>
+
+
+            <div class="contact-wrapper">
+
+                <div class="contact-info">
+
+                    <!-- INFORMAÇÕES DE CONTATO -->
+
+                    <p></p>
+                    <p></p>
+                    <p></p>
+
+                </div>
+
+
+                <form class="contact-form">
+
+                    <input
+                        type="text"
+                        placeholder="Nome"
+                    >
+
+                    <input
+                        type="email"
+                        placeholder="E-mail"
+                    >
+
+                    <textarea
+                        placeholder="Mensagem"
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Enviar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Schwartz-Dev. Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const form = document.querySelector(".contact-form");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert("Formulário pronto para ser configurado.");
+
+        });
+
+    </script>
+
+</body>
+</html>
