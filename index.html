@@ -4,426 +4,307 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Schwartz-Dev</title>
+    <title>Schwartz-Dev | Login</title>
 
     <style>
         /* =========================
-           VARIÁVEIS DE CORES
+           CORES
         ========================= */
+
         :root {
-            --roxo-escuro: #24152f;
-            --roxo: #392044;
-            --roxo-medio: #53335f;
-            --roxo-pastel: #8d6a98;
+            --roxo-escuro: #1b1024;
+            --roxo: #291535;
+            --roxo-medio: #4b2c59;
+            --roxo-claro: #80608d;
             --lilas: #b99bc4;
-            --lilas-claro: #dbc9df;
-            --fundo: #17101e;
-            --fundo-card: #211629;
-            --texto: #f3eaf5;
-            --texto-secundario: #cbbbd0;
-            --borda: rgba(185, 155, 196, 0.2);
+            --lilas-claro: #decde2;
+
+            --texto: #f5edf7;
+            --texto-secundario: #c8b8cd;
+
+            --borda: rgba(185, 155, 196, 0.25);
         }
 
         /* =========================
            RESET
         ========================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--fundo);
-            color: var(--texto);
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-
-            background: rgba(23, 16, 30, 0.88);
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid var(--borda);
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: auto;
-
-            height: 75px;
-            padding: 0 30px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--lilas-claro);
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--lilas);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--texto-secundario);
-            font-size: 0.95rem;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--lilas-claro);
-        }
-
-        /* =========================
-           SEÇÕES
-        ========================= */
-        section {
             min-height: 100vh;
-            padding: 120px 30px 80px;
-        }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        /* =========================
-           INÍCIO
-        ========================= */
-        #inicio {
-            display: flex;
-            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
 
             background:
                 radial-gradient(
-                    circle at 80% 30%,
-                    rgba(141, 106, 152, 0.18),
+                    circle at top left,
+                    rgba(128, 96, 141, 0.20),
                     transparent 35%
-                );
-        }
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(185, 155, 196, 0.12),
+                    transparent 35%
+                ),
+                var(--roxo-escuro);
 
-        .hero {
-            max-width: 850px;
-        }
-
-        .hero small {
-            color: var(--lilas);
-            font-size: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .hero h1 {
-            margin-top: 15px;
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 1;
             color: var(--texto);
-        }
-
-        .hero h1 span {
-            color: var(--lilas);
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin-top: 25px;
-
-            color: var(--texto-secundario);
-            font-size: 1.1rem;
-        }
-
-        .hero-buttons {
-            margin-top: 35px;
-
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 13px 25px;
-
-            border-radius: 8px;
-
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: var(--roxo-medio);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--roxo-pastel);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            border: 1px solid var(--borda);
-            color: var(--lilas-claro);
-        }
-
-        .btn-outline:hover {
-            background: rgba(185, 155, 196, 0.1);
-        }
-
-        /* =========================
-           TÍTULOS
-        ========================= */
-        .section-title {
-            margin-bottom: 50px;
-        }
-
-        .section-title span {
-            color: var(--lilas);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .section-title h2 {
-            margin-top: 8px;
-            font-size: 2.5rem;
-            color: var(--texto);
-        }
-
-        .section-title p {
-            margin-top: 10px;
-            color: var(--texto-secundario);
-        }
-
-        /* =========================
-           PROJETOS
-        ========================= */
-        #projetos {
-            background: var(--roxo-escuro);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .project-card {
-            min-height: 280px;
-            padding: 25px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            background: var(--fundo-card);
-            border: 1px solid var(--borda);
-            border-radius: 15px;
-
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--lilas);
-        }
-
-        .project-number {
-            color: var(--lilas);
-            margin-bottom: auto;
-            font-size: 0.9rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-            color: var(--texto-secundario);
-        }
-
-        /* =========================
-           PROGRAMADORES
-        ========================= */
-        .developers-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .developer-card {
-            padding: 30px;
-
-            background: var(--fundo-card);
-            border: 1px solid var(--borda);
-            border-radius: 15px;
-
-            text-align: center;
-        }
-
-        .developer-photo {
-            width: 100px;
-            height: 100px;
-
-            margin: 0 auto 20px;
-
-            border-radius: 50%;
-
-            background: var(--roxo-medio);
-            border: 3px solid var(--lilas);
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            color: var(--lilas-claro);
-            font-size: 2rem;
-        }
-
-        .developer-card h3 {
-            margin-bottom: 5px;
-        }
-
-        .developer-card p {
-            color: var(--texto-secundario);
+            padding: 20px;
         }
 
         /* =========================
-           SOBRE NÓS
+           CONTAINER
         ========================= */
-        #sobre {
-            background: var(--roxo-escuro);
-        }
 
-        .about-content {
-            max-width: 850px;
-        }
-
-        .about-content p {
-            margin-bottom: 20px;
-            color: var(--texto-secundario);
-            font-size: 1.05rem;
-        }
-
-        /* =========================
-           CONTATO
-        ========================= */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info p {
-            color: var(--texto-secundario);
-            margin-bottom: 20px;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
+        .auth-container {
             width: 100%;
-            padding: 15px;
+            max-width: 460px;
+        }
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo h1 {
+            font-size: 2.4rem;
+            letter-spacing: 1px;
+        }
+
+        .logo h1 span {
+            color: var(--lilas);
+        }
+
+        .logo p {
+            margin-top: 5px;
+            color: var(--texto-secundario);
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .auth-card {
+            background: rgba(41, 21, 53, 0.88);
 
             border: 1px solid var(--borda);
-            border-radius: 8px;
 
-            background: var(--fundo-card);
-            color: white;
+            border-radius: 18px;
 
-            outline: none;
-            font-family: inherit;
+            padding: 35px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.35);
+
+            backdrop-filter: blur(15px);
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--lilas);
+        .auth-card h2 {
+            text-align: center;
+
+            margin-bottom: 8px;
+
+            font-size: 1.8rem;
         }
 
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
+        .auth-description {
+            text-align: center;
+
+            color: var(--texto-secundario);
+
+            margin-bottom: 30px;
+
+            font-size: 0.9rem;
         }
 
         /* =========================
-           FOOTER
+           FORMULÁRIO
         ========================= */
-        footer {
-            padding: 30px;
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: var(--lilas-claro);
+
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border-radius: 9px;
+
+            border: 1px solid var(--borda);
+
+            background: rgba(27, 16, 36, 0.8);
+
+            color: white;
+
+            font-size: 0.95rem;
+
+            outline: none;
+
+            transition: 0.25s;
+        }
+
+        .form-group input::placeholder {
+            color: #806e86;
+        }
+
+        .form-group input:focus {
+            border-color: var(--lilas);
+
+            box-shadow:
+                0 0 0 3px rgba(185, 155, 196, 0.08);
+        }
+
+        /* =========================
+           BOTÃO
+        ========================= */
+
+        .btn {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: var(--roxo-medio);
+
+            color: white;
+
+            font-size: 1rem;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--roxo-claro);
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           LINKS
+        ========================= */
+
+        .switch-page {
             text-align: center;
 
-            background: #100b15;
-            border-top: 1px solid var(--borda);
+            margin-top: 25px;
 
             color: var(--texto-secundario);
+
+            font-size: 0.9rem;
+        }
+
+        .switch-page a {
+            color: var(--lilas);
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            text-decoration: none;
+        }
+
+        .switch-page a:hover {
+            color: var(--lilas-claro);
+
+            text-decoration: underline;
+        }
+
+        /* =========================
+           MENSAGENS
+        ========================= */
+
+        .message {
+            display: none;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 0.9rem;
+        }
+
+        .message.error {
+            display: block;
+
+            background: rgba(180, 60, 80, 0.15);
+
+            border: 1px solid rgba(220, 90, 110, 0.35);
+
+            color: #e9a5b0;
+        }
+
+        .message.success {
+            display: block;
+
+            background: rgba(80, 160, 120, 0.15);
+
+            border: 1px solid rgba(100, 190, 140, 0.35);
+
+            color: #a8dfc0;
+        }
+
+        /* =========================
+           ESCONDER
+        ========================= */
+
+        .hidden {
+            display: none;
         }
 
         /* =========================
            RESPONSIVIDADE
         ========================= */
-        @media (max-width: 900px) {
-            .projects-grid,
-            .developers-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: 500px) {
+
+            body {
+                padding: 15px;
             }
 
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 650px) {
-            .navbar {
-                padding: 0 20px;
+            .auth-card {
+                padding: 25px 20px;
             }
 
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            .projects-grid,
-            .developers-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 3.5rem;
+            .logo h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -431,332 +312,606 @@
 
 <body>
 
-    <!-- =========================
-         MENU
-    ========================== -->
+    <main class="auth-container">
 
-    <header>
-        <nav class="navbar">
+        <!-- =========================
+             LOGO
+        ========================== -->
 
-            <a href="#inicio" class="logo">
+        <div class="logo">
+
+            <h1>
                 Schwartz<span>-Dev</span>
-            </a>
+            </h1>
 
-            <ul class="nav-links">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#programadores">Programadores</a></li>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-
-        </nav>
-    </header>
-
-
-    <!-- =========================
-         INÍCIO
-    ========================== -->
-
-    <section id="inicio">
-
-        <div class="container">
-
-            <div class="hero">
-
-                <small>SCHWARTZ-DEV</small>
-
-                <!-- COLOQUE SEU TÍTULO AQUI -->
-                <h1>
-                    <!-- Título -->
-                    <span></span>
-                </h1>
-
-                <!-- COLOQUE SUA DESCRIÇÃO AQUI -->
-                <p>
-                    
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#projetos" class="btn btn-primary">
-                        Ver projetos
-                    </a>
-
-                    <a href="#contato" class="btn btn-outline">
-                        Entrar em contato
-                    </a>
-
-                </div>
-
-            </div>
+            <p>
+                Desenvolvimento • Tecnologia • Inovação
+            </p>
 
         </div>
 
-    </section>
 
+        <!-- ==================================================
+             TELA DE LOGIN
+        =================================================== -->
 
-    <!-- =========================
-         PROJETOS
-    ========================== -->
+        <section
+            class="auth-card"
+            id="loginPage"
+        >
 
-    <section id="projetos">
+            <h2>
+                Bem-vindo
+            </h2>
 
-        <div class="container">
+            <p class="auth-description">
+                Entre na sua conta para continuar.
+            </p>
 
-            <div class="section-title">
 
-                <span>Projetos</span>
+            <div
+                id="loginMessage"
+                class="message"
+            ></div>
 
-                <h2></h2>
 
-                <p></p>
+            <form id="loginForm">
 
-            </div>
+                <!-- USUÁRIO -->
 
+                <div class="form-group">
 
-            <div class="projects-grid">
-
-                <!-- PROJETO 01 -->
-                <div class="project-card">
-
-                    <span class="project-number">01</span>
-
-                    <div>
-                        <h3></h3>
-                        <p></p>
-                    </div>
-
-                </div>
-
-
-                <!-- PROJETO 02 -->
-                <div class="project-card">
-
-                    <span class="project-number">02</span>
-
-                    <div>
-                        <h3></h3>
-                        <p></p>
-                    </div>
-
-                </div>
-
-
-                <!-- PROJETO 03 -->
-                <div class="project-card">
-
-                    <span class="project-number">03</span>
-
-                    <div>
-                        <h3></h3>
-                        <p></p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         PROGRAMADORES
-    ========================== -->
-
-    <section id="programadores">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Equipe</span>
-
-                <h2></h2>
-
-                <p></p>
-
-            </div>
-
-
-            <div class="developers-grid">
-
-                <!-- PROGRAMADOR 01 -->
-                <div class="developer-card">
-
-                    <div class="developer-photo">
-                        
-                    </div>
-
-                    <h3></h3>
-
-                    <p></p>
-
-                </div>
-
-
-                <!-- PROGRAMADOR 02 -->
-                <div class="developer-card">
-
-                    <div class="developer-photo">
-                        
-                    </div>
-
-                    <h3></h3>
-
-                    <p></p>
-
-                </div>
-
-
-                <!-- PROGRAMADOR 03 -->
-                <div class="developer-card">
-
-                    <div class="developer-photo">
-                        
-                    </div>
-
-                    <h3></h3>
-
-                    <p></p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         SOBRE NÓS
-    ========================== -->
-
-    <section id="sobre">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Sobre nós</span>
-
-                <h2></h2>
-
-            </div>
-
-
-            <div class="about-content">
-
-                <!-- ESCREVA SOBRE A EQUIPE AQUI -->
-
-                <p></p>
-
-                <p></p>
-
-                <p></p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTATO
-    ========================== -->
-
-    <section id="contato">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <span>Contato</span>
-
-                <h2></h2>
-
-                <p></p>
-
-            </div>
-
-
-            <div class="contact-wrapper">
-
-                <div class="contact-info">
-
-                    <!-- INFORMAÇÕES DE CONTATO -->
-
-                    <p></p>
-                    <p></p>
-                    <p></p>
-
-                </div>
-
-
-                <form class="contact-form">
+                    <label for="loginUsuario">
+                        Usuário
+                    </label>
 
                     <input
                         type="text"
-                        placeholder="Nome"
+                        id="loginUsuario"
+                        placeholder="Digite seu usuário"
+                        required
                     >
+
+                </div>
+
+
+                <!-- SENHA -->
+
+                <div class="form-group">
+
+                    <label for="loginSenha">
+                        Senha
+                    </label>
 
                     <input
-                        type="email"
-                        placeholder="E-mail"
+                        type="password"
+                        id="loginSenha"
+                        placeholder="Digite sua senha"
+                        required
                     >
 
-                    <textarea
-                        placeholder="Mensagem"
-                    ></textarea>
+                </div>
 
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                    >
-                        Enviar
-                    </button>
 
-                </form>
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Entrar
+                </button>
+
+            </form>
+
+
+            <div class="switch-page">
+
+                Ainda não possui uma conta?
+
+                <a id="showRegister">
+                    Criar conta
+                </a>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+        <!-- ==================================================
+             TELA DE CADASTRO
+        =================================================== -->
 
-    <footer>
+        <section
+            class="auth-card hidden"
+            id="registerPage"
+        >
 
-        <p>
-            © 2026 Schwartz-Dev. Todos os direitos reservados.
-        </p>
+            <h2>
+                Criar conta
+            </h2>
 
-    </footer>
+            <p class="auth-description">
+                Crie sua conta na Schwartz-Dev.
+            </p>
 
 
-    <!-- =========================
+            <div
+                id="registerMessage"
+                class="message"
+            ></div>
+
+
+            <form id="registerForm">
+
+                <!-- NOME -->
+
+                <div class="form-group">
+
+                    <label for="nome">
+                        Nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- USUÁRIO -->
+
+                <div class="form-group">
+
+                    <label for="usuario">
+                        Usuário
+                    </label>
+
+                    <input
+                        type="text"
+                        id="usuario"
+                        placeholder="Escolha um usuário"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- TELEFONE -->
+
+                <div class="form-group">
+
+                    <label for="telefone">
+                        Telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        placeholder="(00) 00000-0000"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SENHA -->
+
+                <div class="form-group">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Crie uma senha"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- CONFIRMAR SENHA -->
+
+                <div class="form-group">
+
+                    <label for="confirmarSenha">
+                        Confirmar senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmarSenha"
+                        placeholder="Digite a senha novamente"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Criar conta
+                </button>
+
+            </form>
+
+
+            <div class="switch-page">
+
+                Já possui uma conta?
+
+                <a id="showLogin">
+                    Fazer login
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================================================
          JAVASCRIPT
-    ========================== -->
+    =================================================== -->
 
     <script>
 
-        const form = document.querySelector(".contact-form");
+        /* =========================
+           ELEMENTOS
+        ========================= */
 
-        form.addEventListener("submit", function(event) {
+        const loginPage =
+            document.getElementById("loginPage");
+
+        const registerPage =
+            document.getElementById("registerPage");
+
+        const showRegister =
+            document.getElementById("showRegister");
+
+        const showLogin =
+            document.getElementById("showLogin");
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        const loginMessage =
+            document.getElementById("loginMessage");
+
+        const registerMessage =
+            document.getElementById("registerMessage");
+
+
+        /* =========================
+           TROCAR PARA CADASTRO
+        ========================= */
+
+        showRegister.addEventListener("click", () => {
+
+            loginPage.classList.add("hidden");
+
+            registerPage.classList.remove("hidden");
+
+            limparMensagens();
+
+        });
+
+
+        /* =========================
+           TROCAR PARA LOGIN
+        ========================= */
+
+        showLogin.addEventListener("click", () => {
+
+            registerPage.classList.add("hidden");
+
+            loginPage.classList.remove("hidden");
+
+            limparMensagens();
+
+        });
+
+
+        /* =========================
+           LIMPAR MENSAGENS
+        ========================= */
+
+        function limparMensagens() {
+
+            loginMessage.className = "message";
+            loginMessage.textContent = "";
+
+            registerMessage.className = "message";
+            registerMessage.textContent = "";
+
+        }
+
+
+        /* =========================
+           CADASTRO
+        ========================= */
+
+        registerForm.addEventListener("submit", (event) => {
 
             event.preventDefault();
 
-            alert("Formulário pronto para ser configurado.");
+
+            const nome =
+                document.getElementById("nome").value.trim();
+
+            const usuario =
+                document.getElementById("usuario").value.trim();
+
+            const telefone =
+                document.getElementById("telefone").value.trim();
+
+            const senha =
+                document.getElementById("senha").value;
+
+            const confirmarSenha =
+                document.getElementById("confirmarSenha").value;
+
+
+            /* VERIFICAR SENHAS */
+
+            if (senha !== confirmarSenha) {
+
+                mostrarMensagem(
+                    registerMessage,
+                    "As senhas não são iguais.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* BUSCAR USUÁRIOS */
+
+            let usuarios =
+                JSON.parse(
+                    localStorage.getItem("schwartzUsuarios")
+                ) || [];
+
+
+            /* VERIFICAR USUÁRIO EXISTENTE */
+
+            const usuarioExiste =
+                usuarios.some(
+                    user => user.usuario === usuario
+                );
+
+
+            if (usuarioExiste) {
+
+                mostrarMensagem(
+                    registerMessage,
+                    "Este usuário já está cadastrado.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /* CRIAR CONTA */
+
+            const novoUsuario = {
+
+                nome: nome,
+
+                usuario: usuario,
+
+                telefone: telefone,
+
+                senha: senha
+
+            };
+
+
+            usuarios.push(novoUsuario);
+
+
+            localStorage.setItem(
+                "schwartzUsuarios",
+                JSON.stringify(usuarios)
+            );
+
+
+            /* MENSAGEM */
+
+            mostrarMensagem(
+                registerMessage,
+                "Conta criada com sucesso!",
+                "success"
+            );
+
+
+            /* LIMPAR FORMULÁRIO */
+
+            registerForm.reset();
+
+
+            /* VOLTAR PARA LOGIN */
+
+            setTimeout(() => {
+
+                registerPage.classList.add("hidden");
+
+                loginPage.classList.remove("hidden");
+
+                loginMessage.className =
+                    "message success";
+
+                loginMessage.textContent =
+                    "Cadastro realizado! Agora faça login.";
+
+            }, 1200);
 
         });
+
+
+        /* =========================
+           LOGIN
+        ========================= */
+
+        loginForm.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+
+            const usuario =
+                document
+                    .getElementById("loginUsuario")
+                    .value
+                    .trim();
+
+            const senha =
+                document
+                    .getElementById("loginSenha")
+                    .value;
+
+
+            /* BUSCAR USUÁRIOS */
+
+            const usuarios =
+                JSON.parse(
+                    localStorage.getItem("schwartzUsuarios")
+                ) || [];
+
+
+            /* PROCURAR USUÁRIO */
+
+            const usuarioEncontrado =
+                usuarios.find(
+                    user =>
+                        user.usuario === usuario &&
+                        user.senha === senha
+                );
+
+
+            /* VERIFICAR LOGIN */
+
+            if (usuarioEncontrado) {
+
+                mostrarMensagem(
+                    loginMessage,
+                    "Login realizado com sucesso!",
+                    "success"
+                );
+
+
+                /*
+                    AQUI VOCÊ PODE REDIRECIONAR
+                    PARA A PÁGINA PRINCIPAL.
+
+                    Exemplo:
+
+                    window.location.href =
+                        "home.html";
+                */
+
+                setTimeout(() => {
+
+                    alert(
+                        "Bem-vindo, " +
+                        usuarioEncontrado.nome +
+                        "!"
+                    );
+
+                }, 500);
+
+            } else {
+
+                mostrarMensagem(
+                    loginMessage,
+                    "Usuário ou senha incorretos.",
+                    "error"
+                );
+
+            }
+
+        });
+
+
+        /* =========================
+           MENSAGEM
+        ========================= */
+
+        function mostrarMensagem(
+            elemento,
+            texto,
+            tipo
+        ) {
+
+            elemento.textContent = texto;
+
+            elemento.className =
+                "message " + tipo;
+
+        }
+
+
+        /* =========================
+           MÁSCARA DE TELEFONE
+        ========================= */
+
+        const telefoneInput =
+            document.getElementById("telefone");
+
+
+        telefoneInput.addEventListener(
+            "input",
+            () => {
+
+                let valor =
+                    telefoneInput.value
+                        .replace(/\D/g, "");
+
+                if (valor.length > 11) {
+                    valor = valor.substring(0, 11);
+                }
+
+                if (valor.length <= 10) {
+
+                    valor = valor.replace(
+                        /^(\d{2})(\d)/,
+                        "($1) $2"
+                    );
+
+                    valor = valor.replace(
+                        /(\d{4})(\d)/,
+                        "$1-$2"
+                    );
+
+                } else {
+
+                    valor = valor.replace(
+                        /^(\d{2})(\d)/,
+                        "($1) $2"
+                    );
+
+                    valor = valor.replace(
+                        /(\d{5})(\d)/,
+                        "$1-$2"
+                    );
+
+                }
+
+                telefoneInput.value = valor;
+
+            }
+        );
 
     </script>
 
