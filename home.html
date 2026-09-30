@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Schwartz-Dev | Início</title>
+
+    <style>
+
+        :root {
+            --roxo-escuro: #17101e;
+            --roxo: #24152f;
+            --roxo-medio: #392044;
+            --roxo-claro: #53335f;
+            --lilas: #a982b2;
+            --lilas-claro: #d8c0dd;
+
+            --texto: #f5edf7;
+            --texto-secundario: #c8b8ce;
+
+            --borda: rgba(185, 155, 196, 0.2);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: var(--roxo-escuro);
+
+            color: var(--texto);
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            background: rgba(23, 16, 30, 0.9);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom:
+                1px solid var(--borda);
+        }
+
+
+        nav {
+            max-width: 1200px;
+
+            height: 75px;
+
+            margin: auto;
+
+            padding: 0 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            font-size: 1.5rem;
+
+            font-weight: bold;
+
+            color: var(--lilas-claro);
+        }
+
+
+        .logo span {
+            color: var(--lilas);
+        }
+
+
+        .menu {
+            display: flex;
+
+            gap: 30px;
+
+            list-style: none;
+        }
+
+
+        .menu a {
+            color: var(--texto-secundario);
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        .menu a:hover {
+            color: var(--lilas-claro);
+        }
+
+
+        .logout {
+            color: #d99aa7 !important;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            min-height: 100vh;
+
+            padding:
+                130px 30px 80px;
+        }
+
+
+        .container {
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        #inicio {
+            display: flex;
+
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(141, 106, 152, 0.2),
+                    transparent 35%
+                );
+        }
+
+
+        .hero {
+            max-width: 800px;
+        }
+
+
+        .welcome {
+            color: var(--lilas);
+
+            font-size: 1rem;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .hero h1 {
+            font-size:
+                clamp(3rem, 8vw, 6rem);
+
+            line-height: 1;
+
+            margin-top: 15px;
+        }
+
+
+        .hero h1 span {
+            color: var(--lilas);
+        }
+
+
+        .hero p {
+            margin-top: 25px;
+
+            max-width: 650px;
+
+            color: var(--texto-secundario);
+
+            font-size: 1.1rem;
+        }
+
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 13px 25px;
+
+            background: var(--roxo-claro);
+
+            border-radius: 8px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .btn:hover {
+            background: var(--lilas);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           TÍTULOS
+        ========================= */
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+
+        .section-title span {
+            color: var(--lilas);
+
+            font-size: 0.85rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+        }
+
+
+        .section-title h2 {
+            margin-top: 8px;
+
+            font-size: 2.5rem;
+        }
+
+
+        .section-title p {
+            margin-top: 10px;
+
+            color: var(--texto-secundario);
+        }
+
+
+        /* =========================
+           PROJETOS
+        ========================= */
+
+        #projetos {
+            background: var(--roxo);
+        }
+
+
+        .projects {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .card {
+            min-height: 250px;
+
+            padding: 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+
+            background:
+                rgba(33, 22, 41, 0.9);
+
+            border:
+                1px solid var(--borda);
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+
+        .card:hover {
+            transform: translateY(-7px);
+
+            border-color: var(--lilas);
+        }
+
+
+        .card-number {
+            margin-bottom: auto;
+
+            color: var(--lilas);
+        }
+
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+
+        .card p {
+            color: var(--texto-secundario);
+        }
+
+
+        /* =========================
+           PROGRAMADORES
+        ========================= */
+
+        .developers {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .developer {
+            padding: 30px;
+
+            text-align: center;
+
+            background:
+                rgba(33, 22, 41, 0.9);
+
+            border:
+                1px solid var(--borda);
+
+            border-radius: 15px;
+        }
+
+
+        .avatar {
+            width: 100px;
+
+            height: 100px;
+
+            margin:
+                0 auto 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--roxo-claro);
+
+            border:
+                3px solid var(--lilas);
+
+            font-size: 2rem;
+        }
+
+
+        .developer p {
+            margin-top: 5px;
+
+            color: var(--texto-secundario);
+        }
+
+
+        /* =========================
+           SOBRE
+        ========================= */
+
+        #sobre {
+            background: var(--roxo);
+        }
+
+
+        .about {
+            max-width: 800px;
+        }
+
+
+        .about p {
+            margin-bottom: 20px;
+
+            color: var(--texto-secundario);
+
+            font-size: 1.05rem;
+        }
+
+
+        /* =========================
+           CONTATO
+        ========================= */
+
+        .contact {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 50px;
+        }
+
+
+        .contact p {
+            color: var(--texto-secundario);
+
+            margin-bottom: 15px;
+        }
+
+
+        .contact-form {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            padding: 14px;
+
+            background:
+                var(--roxo);
+
+            border:
+                1px solid var(--borda);
+
+            border-radius: 8px;
+
+            color: white;
+
+            outline: none;
+        }
+
+
+        .contact-form textarea {
+            min-height: 140px;
+
+            resize: vertical;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px;
+
+            text-align: center;
+
+            background: #100b15;
+
+            color: var(--texto-secundario);
+
+            border-top:
+                1px solid var(--borda);
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .menu {
+                display: none;
+            }
+
+
+            .projects,
+            .developers,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <header>
+
+        <nav>
+
+            <a
+                href="#inicio"
+                class="logo"
+            >
+                Schwartz<span>-Dev</span>
+            </a>
+
+
+            <ul class="menu">
+
+                <li>
+                    <a href="#inicio">
+                        Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projetos">
+                        Projetos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#programadores">
+                        Programadores
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sobre">
+                        Sobre Nós
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contato">
+                        Contato
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#"
+                        class="logout"
+                        id="logout"
+                    >
+                        Sair
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         INÍCIO
+    ========================== -->
+
+    <section id="inicio">
+
+        <div class="container">
+
+            <div class="hero">
+
+                <span class="welcome">
+                    Schwartz-Dev
+                </span>
+
+
+                <h1>
+                    Olá,
+                    <span id="nomeUsuario">
+                        usuário
+                    </span>.
+                </h1>
+
+
+                <p>
+                    Bem-vindo à Schwartz-Dev.
+                    Este espaço está pronto para
+                    receber os projetos, informações
+                    e conteúdos da sua equipe.
+                </p>
+
+
+                <a
+                    href="#projetos"
+                    class="btn"
+                >
+                    Ver projetos
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJETOS
+    ========================== -->
+
+    <section id="projetos">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>
+                    Projetos
+                </span>
+
+                <h2>
+                    Nossos projetos
+                </h2>
+
+                <p>
+                    Adicione aqui os projetos
+                    desenvolvidos pela equipe.
+                </p>
+
+            </div>
+
+
+            <div class="projects">
+
+                <div class="card">
+
+                    <span class="card-number">
+                        01
+                    </span>
+
+                    <h3>
+                        
+                    </h3>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span class="card-number">
+                        02
+                    </span>
+
+                    <h3>
+                        
+                    </h3>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span class="card-number">
+                        03
+                    </span>
+
+                    <h3>
+                        
+                    </h3>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROGRAMADORES
+    ========================== -->
+
+    <section id="programadores">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>
+                    Equipe
+                </span>
+
+                <h2>
+                    Programadores
+                </h2>
+
+                <p>
+                    Conheça os integrantes da equipe.
+                </p>
+
+            </div>
+
+
+            <div class="developers">
+
+                <div class="developer">
+
+                    <div class="avatar">
+                        
+                    </div>
+
+                    <h3>
+                        
+                    </h3>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+
+                <div class="developer">
+
+                    <div class="avatar">
+                        
+                    </div>
+
+                    <h3>
+                        
+                    </h3>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+
+                <div class="developer">
+
+                    <div class="avatar">
+                        
+                    </div>
+
+                    <h3>
+                        
+                    </h3>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOBRE
+    ========================== -->
+
+    <section id="sobre">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>
+                    Sobre nós
+                </span>
+
+                <h2>
+                    
+                </h2>
+
+            </div>
+
+
+            <div class="about">
+
+                <p>
+                    
+                </p>
+
+                <p>
+                    
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTATO
+    ========================== -->
+
+    <section id="contato">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>
+                    Contato
+                </span>
+
+                <h2>
+                    Entre em contato
+                </h2>
+
+            </div>
+
+
+            <div class="contact">
+
+                <div>
+
+                    <p>
+                        
+                    </p>
+
+                    <p>
+                        
+                    </p>
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+
+                <form class="contact-form">
+
+                    <input
+                        type="text"
+                        placeholder="Nome"
+                    >
+
+                    <input
+                        type="email"
+                        placeholder="E-mail"
+                    >
+
+                    <textarea
+                        placeholder="Mensagem"
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Enviar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Schwartz-Dev.
+            Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+         * Verifica se existe alguém logado.
+         */
+
+        const usuarioLogado =
+            localStorage.getItem("usuarioLogado");
+
+
+        if (!usuarioLogado) {
+
+            // Se não estiver logado,
+            // volta para o login.
+
+            window.location.href = "index.html";
+
+        } else {
+
+            /*
+             * Recupera os dados do usuário.
+             */
+
+            const usuario =
+                JSON.parse(usuarioLogado);
+
+
+            /*
+             * Mostra o nome na página.
+             */
+
+            document.getElementById(
+                "nomeUsuario"
+            ).textContent = usuario.nome;
+
+        }
+
+
+        /*
+         * BOTÃO SAIR
+         */
+
+        document
+            .getElementById("logout")
+            .addEventListener("click", function(event) {
+
+                event.preventDefault();
+
+
+                /*
+                 * Remove o usuário logado.
+                 */
+
+                localStorage.removeItem(
+                    "usuarioLogado"
+                );
+
+
+                /*
+                 * Volta para o login.
+                 */
+
+                window.location.href =
+                    "index.html";
+
+            });
+
+
+        /*
+         * FORMULÁRIO DE CONTATO
+         */
+
+        document
+            .querySelector(".contact-form")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                alert(
+                    "O formulário de contato ainda será configurado."
+                );
+
+            });
+
+    </script>
+
+</body>
+
+</html>
