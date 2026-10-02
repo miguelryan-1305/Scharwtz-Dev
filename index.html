@@ -804,24 +804,32 @@
 
             if (usuarioEncontrado) {
 
-    mostrarMensagem(
-        loginMessage,
-        "Login realizado com sucesso!",
-        "success"
-    );
+                mostrarMensagem(
+                    loginMessage,
+                    "Login realizado com sucesso!",
+                    "success"
+                );
 
-    // Salva o usuário que está logado
-    localStorage.setItem(
-        "usuarioLogado",
-        JSON.stringify(usuarioEncontrado)
-    );
 
-    // Redireciona para a página inicial
-    setTimeout(() => {
-        window.location.href = "home.html";
-    }, 800);
+                /*
+                    AQUI VOCÊ PODE REDIRECIONAR
+                    PARA A PÁGINA PRINCIPAL.
 
-}
+                    Exemplo:
+
+                    window.location.href =
+                        "home.html";
+                */
+
+                setTimeout(() => {
+
+                    alert(
+                        "Bem-vindo, " +
+                        usuarioEncontrado.nome +
+                        "!"
+                    );
+
+                }, 500);
 
             } else {
 
