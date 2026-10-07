@@ -1,5 +1,8 @@
+:::writing{variant="document" id="74126" title="index.html — Login e Cadastro"}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +10,6 @@
     <title>Schwartz-Dev | Login</title>
 
     <style>
-        /* =========================
-           CORES
-        ========================= */
-
         :root {
             --roxo-escuro: #1b1024;
             --roxo: #291535;
@@ -24,10 +23,6 @@
 
             --borda: rgba(185, 155, 196, 0.25);
         }
-
-        /* =========================
-           RESET
-        ========================= */
 
         * {
             margin: 0;
@@ -62,18 +57,10 @@
             padding: 20px;
         }
 
-        /* =========================
-           CONTAINER
-        ========================= */
-
         .auth-container {
             width: 100%;
             max-width: 460px;
         }
-
-        /* =========================
-           LOGO
-        ========================= */
 
         .logo {
             text-align: center;
@@ -94,10 +81,6 @@
             color: var(--texto-secundario);
             font-size: 0.9rem;
         }
-
-        /* =========================
-           CARD
-        ========================= */
 
         .auth-card {
             background: rgba(41, 21, 53, 0.88);
@@ -131,10 +114,6 @@
 
             font-size: 0.9rem;
         }
-
-        /* =========================
-           FORMULÁRIO
-        ========================= */
 
         .form-group {
             margin-bottom: 18px;
@@ -181,10 +160,6 @@
                 0 0 0 3px rgba(185, 155, 196, 0.08);
         }
 
-        /* =========================
-           BOTÃO
-        ========================= */
-
         .btn {
             width: 100%;
 
@@ -213,10 +188,6 @@
             transform: translateY(-2px);
         }
 
-        /* =========================
-           LINKS
-        ========================= */
-
         .switch-page {
             text-align: center;
 
@@ -242,10 +213,6 @@
 
             text-decoration: underline;
         }
-
-        /* =========================
-           MENSAGENS
-        ========================= */
 
         .message {
             display: none;
@@ -281,17 +248,9 @@
             color: #a8dfc0;
         }
 
-        /* =========================
-           ESCONDER
-        ========================= */
-
         .hidden {
             display: none;
         }
-
-        /* =========================
-           RESPONSIVIDADE
-        ========================= */
 
         @media (max-width: 500px) {
 
@@ -314,10 +273,6 @@
 
     <main class="auth-container">
 
-        <!-- =========================
-             LOGO
-        ========================== -->
-
         <div class="logo">
 
             <h1>
@@ -331,9 +286,7 @@
         </div>
 
 
-        <!-- ==================================================
-             TELA DE LOGIN
-        =================================================== -->
+        <!-- LOGIN -->
 
         <section
             class="auth-card"
@@ -348,16 +301,12 @@
                 Entre na sua conta para continuar.
             </p>
 
-
             <div
                 id="loginMessage"
                 class="message"
             ></div>
 
-
             <form id="loginForm">
-
-                <!-- USUÁRIO -->
 
                 <div class="form-group">
 
@@ -374,8 +323,6 @@
 
                 </div>
 
-
-                <!-- SENHA -->
 
                 <div class="form-group">
 
@@ -416,9 +363,7 @@
         </section>
 
 
-        <!-- ==================================================
-             TELA DE CADASTRO
-        =================================================== -->
+        <!-- CADASTRO -->
 
         <section
             class="auth-card hidden"
@@ -442,8 +387,6 @@
 
             <form id="registerForm">
 
-                <!-- NOME -->
-
                 <div class="form-group">
 
                     <label for="nome">
@@ -459,8 +402,6 @@
 
                 </div>
 
-
-                <!-- USUÁRIO -->
 
                 <div class="form-group">
 
@@ -478,8 +419,6 @@
                 </div>
 
 
-                <!-- TELEFONE -->
-
                 <div class="form-group">
 
                     <label for="telefone">
@@ -496,8 +435,6 @@
                 </div>
 
 
-                <!-- SENHA -->
-
                 <div class="form-group">
 
                     <label for="senha">
@@ -513,8 +450,6 @@
 
                 </div>
 
-
-                <!-- CONFIRMAR SENHA -->
 
                 <div class="form-group">
 
@@ -556,10 +491,6 @@
 
     </main>
 
-
-    <!-- ==================================================
-         JAVASCRIPT
-    =================================================== -->
 
     <script>
 
@@ -645,7 +576,6 @@
 
             event.preventDefault();
 
-
             const nome =
                 document.getElementById("nome").value.trim();
 
@@ -662,8 +592,6 @@
                 document.getElementById("confirmarSenha").value;
 
 
-            /* VERIFICAR SENHAS */
-
             if (senha !== confirmarSenha) {
 
                 mostrarMensagem(
@@ -676,19 +604,17 @@
             }
 
 
-            /* BUSCAR USUÁRIOS */
-
             let usuarios =
                 JSON.parse(
                     localStorage.getItem("schwartzUsuarios")
                 ) || [];
 
 
-            /* VERIFICAR USUÁRIO EXISTENTE */
-
             const usuarioExiste =
                 usuarios.some(
-                    user => user.usuario === usuario
+                    user =>
+                        user.usuario.toLowerCase() ===
+                        usuario.toLowerCase()
                 );
 
 
@@ -703,8 +629,6 @@
                 return;
             }
 
-
-            /* CRIAR CONTA */
 
             const novoUsuario = {
 
@@ -728,8 +652,6 @@
             );
 
 
-            /* MENSAGEM */
-
             mostrarMensagem(
                 registerMessage,
                 "Conta criada com sucesso!",
@@ -737,12 +659,8 @@
             );
 
 
-            /* LIMPAR FORMULÁRIO */
-
             registerForm.reset();
 
-
-            /* VOLTAR PARA LOGIN */
 
             setTimeout(() => {
 
@@ -782,25 +700,22 @@
                     .value;
 
 
-            /* BUSCAR USUÁRIOS */
-
             const usuarios =
                 JSON.parse(
                     localStorage.getItem("schwartzUsuarios")
                 ) || [];
 
 
-            /* PROCURAR USUÁRIO */
-
             const usuarioEncontrado =
                 usuarios.find(
                     user =>
-                        user.usuario === usuario &&
+                        user.usuario.toLowerCase() ===
+                        usuario.toLowerCase() &&
                         user.senha === senha
                 );
 
 
-            /* VERIFICAR LOGIN */
+            /* LOGIN CORRETO */
 
             if (usuarioEncontrado) {
 
@@ -811,25 +726,22 @@
                 );
 
 
-                /*
-                    AQUI VOCÊ PODE REDIRECIONAR
-                    PARA A PÁGINA PRINCIPAL.
+                /* SALVAR USUÁRIO LOGADO */
 
-                    Exemplo:
+                localStorage.setItem(
+                    "schwartzUsuarioLogado",
+                    JSON.stringify(usuarioEncontrado)
+                );
 
-                    window.location.href =
-                        "home.html";
-                */
+
+                /* IR PARA A PÁGINA PRINCIPAL */
 
                 setTimeout(() => {
 
-                    alert(
-                        "Bem-vindo, " +
-                        usuarioEncontrado.nome +
-                        "!"
-                    );
+                    window.location.href = "home.html";
 
                 }, 500);
+
 
             } else {
 
@@ -878,9 +790,14 @@
                     telefoneInput.value
                         .replace(/\D/g, "");
 
+
                 if (valor.length > 11) {
-                    valor = valor.substring(0, 11);
+
+                    valor =
+                        valor.substring(0, 11);
+
                 }
+
 
                 if (valor.length <= 10) {
 
@@ -908,6 +825,7 @@
 
                 }
 
+
                 telefoneInput.value = valor;
 
             }
@@ -916,4 +834,5 @@
     </script>
 
 </body>
+
 </html>
