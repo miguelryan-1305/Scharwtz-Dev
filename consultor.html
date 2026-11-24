@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro de Consultor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Cadastro de Consultor</h1>
+    <p>Cadastre seus dados profissionais</p>
+
+    <form>
+        <label>Nome completo</label>
+        <input type="text" placeholder="Digite seu nome" required>
+
+        <label>Tipo de documento</label>
+        <select required>
+            <option value="">Selecione</option>
+            <option>CPF</option>
+            <option>RG</option>
+            <option>CNI</option>
+        </select>
+
+        <label>Número do documento</label>
+        <input type="text" placeholder="Digite o número" required>
+
+        <label>Especialização</label>
+        <input type="text" placeholder="Digite sua especialização" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+
+</body>
+</html>
